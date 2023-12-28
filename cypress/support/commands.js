@@ -54,5 +54,15 @@ Cypress.Commands.add("enterText", (element, value) => {
   })
 
 
+  Cypress.Commands.add("selectdropdownvalue", (element, value) => {
+    if (element.includes("//")) {
+      cy.xpath(element).select(value);
+    }
+    else {
+      cy.get(element).select(value);
+    }
+  })
+
+
 
 

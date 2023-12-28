@@ -21,6 +21,12 @@ class addEmployeePage{
      }
 
      successMessage = 'Successfully Saved'
+
+
+     selectmonth(element, option){
+
+       return cy.xpath(element).select(option)
+     }
 }
 
 const addemployee = new addEmployeePage()

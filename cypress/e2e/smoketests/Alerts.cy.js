@@ -9,14 +9,14 @@ describe('Automation - Working with Alerts', function () {
 
         cy.contains('Click for JS Alert').click();
 
-        cy.on('window:alert', (str) => {
+        cy.on('window:alert', (alert) => {
 		
-            expect(str).to.equal(`I am a JS Alert`)
+            expect(alert).to.equal(`I am a JS Alert`)
             return true
         })
     })
 
-    it.only('Cypress Test Case - test Confirm Alert - Cancel', function () {
+    it.only('Cypress Test Case - test Confirm Alert - OK', function () {
 
         cy.contains('Click for JS Confirm').click();
         cy.on('window:confirm', () => {
@@ -25,20 +25,20 @@ describe('Automation - Working with Alerts', function () {
     })
 
 
-    it('Cypress Test Case - test Confirm Alert - Ok', function () {
+    it('Cypress Test Case - test Confirm Alert - Cancle', function () {
 
         cy.contains('Click for JS Confirm').click();
         cy.on('window:confirm', () => {
 
-            return true;
+            return false;
         })
     })
 
     it.only('Cypress Test Case - test prompt Alert - Ok', function () {
     
-        cy.window().then(($win) => {
+        cy.window().then((win) => {
 
-            cy.stub($win, 'prompt').returns("text");
+            cy.stub(win, 'prompt').returns("Swetha");
             cy.contains('Click for JS Prompt').click();
         })
     

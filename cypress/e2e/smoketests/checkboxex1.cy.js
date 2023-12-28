@@ -1,3 +1,4 @@
+
 describe('checkbox Test', function () {
 
     it('Working with Check boxes', function () {
@@ -23,30 +24,25 @@ cy.xpath('//input[@value="f"]').check().should('be.checked');
 
   cy.xpath('//input[@value="m"]').should('not.be.checked');
 
-// //Uncheck will not work for Radio
+//Uncheck will not work for Radio
  
-// //   // //Dropdowns
+//Dropdowns
 
-// //   //  //3 ways we can handle 
+  //3 ways we can handle 
 
-//   //     //Text
-//             cy.xpath('//select[starts-with(@name,"DOB_Month")]').select("APR").should("have.value", "04" )
+    //Text
+            cy.xpath('//select[starts-with(@name,"DOB_Month")]').select("APR").should("have.value", "04" )
 
-//           cy.wait(5000)
-//            //.should("have.value", "05" )
-// //           cy.wait(5000)
-// // //   //     //Value
+          cy.wait(5000)
+
  
-//         cy.xpath('//select[starts-with(@name,"DOB_Month")]').select("09").should("have.value", "09" )
-// //         cy.wait(5000)
-// //         cy.get('select[name*="DOB_Month"]').select('12')
-// // //   //   // Index 
-//        cy.xpath('//select[starts-with(@name,"DOB_Month")]').select(6).should("have.value", "06" )
+        cy.xpath('//select[starts-with(@name,"DOB_Month")]').select("09").should("have.value", "09" )
+        cy.wait(5000)
 
-// //      cy.wait(5000)
-// //      cy.get('select[name*="DOB_Month"]').select(3)
+       cy.xpath('//select[starts-with(@name,"DOB_Month")]').select(6).should("have.value", "06" )
 
-//         jobtitle.selectMonth(data.month)
+      cy.selectdropdownvalue('//select[starts-with(@name,"DOB_Month")]',"OCT")
+    
     });
  });
  
