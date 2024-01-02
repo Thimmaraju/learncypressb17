@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 require('@4tw/cypress-drag-drop')
+require('cypress-downloadfile/lib/downloadFileCommand')
+import 'cypress-file-upload';
 import addjobtitle from "../pages/addjobtitle.po"
 Cypress.Commands.add('addemployee', (firstname, lastname) => {
 

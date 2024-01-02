@@ -3,29 +3,30 @@
 
 describe('Automation - Write file and Read file ', function () {
 
-    it.only('Cypress Test Case - Write file example', function () {
+    it('Cypress Test Case - Write file example', function () {
 
         
-        cy.writeFile('cypress/fixtures/module1/test.txt', "Naveen\n")
+        cy.writeFile('cypress/fixtures/module1/test.txt', "Nagarjun\n")
 
  
      
     })
 
 
-    it.only('Cypress Test Case - Append Data in end to the file ', function () {
+    it('Cypress Test Case - Append Data in end to the file ', function () {
         
+        cy.wait(5000)
         cy.writeFile('cypress/fixtures/module1/test.txt', "Madan",{flag: 'a+'});
      
     })
 
-    it.only('Cypress Test Case - Create Json file ', function () {
+    it('Cypress Test Case - Create Json file ', function () {
         
         cy.writeFile('cypress/fixtures/module1/test6.json', { firstname: 'G', lastname: 'Thimmaraju'});
      
     })
 
-    it.only('Cypress Test Case - extracting text and saving ina file ', function () {
+    it('Cypress Test Case - extracting text and saving ina file ', function () {
 
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
 
@@ -37,7 +38,7 @@ describe('Automation - Write file and Read file ', function () {
             cy.readFile('cypress/fixtures/module1/test6.json').then((data) => {
                 data.newKey = { 'extractedtext': textvalue }
                 cy.writeFile('cypress/fixtures/module1/test6.json', JSON.stringify(data))
-              })
+            })
             
         })
         
@@ -45,19 +46,16 @@ describe('Automation - Write file and Read file ', function () {
      
     })
 
-    it('Cypress Test Case - Validation of Data both Text file and Json ', function () {
+    it.only('Cypress Test Case - Validation of Data both Text file and Json ', function () {
         
-        cy.readFile("cypress/fixtures/addjobtitle.json").its("jobtile").should("eq", "Raju G")
+        cy.readFile("cypress/fixtures/logincreds.json").its("username").should("eq", "Admin")
 
-         cy.readFile('cypress/fixtures/addjobtitle.json').should('exist')
+         cy.readFile('cypress/fixtures/logincreds.json').should('exist')
 
-        // cy.readFile('cypress/fixtures/createemployee.json').its('firstname').should('eq','Poornima')
+     
+          cy.readFile('cypress/fixtures/module1/test.txt').should('contain','Nagarjun');
 
-        //  cy.readFile('cypress/fixtures/module1/test6.json').its('firstname').should('eq','G')
-
-          cy.readFile('cypress/fixtures/module1/test.txt').should('contain','Naveen');
-
-         cy.readFile('cypress/fixtures/module1/test.txt').should('contain','Naveen\nMadan')       
+          cy.readFile('cypress/fixtures/module1/test.txt').should('contain','Nagarjun\nMadan')       
     })
 
 

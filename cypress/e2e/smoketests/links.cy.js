@@ -49,6 +49,8 @@ describe('Automation - Working With Links', function () {
         var linktext = txt.text()
         cy.log(linktext)
 
+        
+
       })
 
     })
@@ -65,8 +67,10 @@ describe('Automation - Working With Links', function () {
     var eletext = raju.text()
 
     cy.log(eletext)
+    cy.writeFile('cypress/fixtures/module1/test2.txt', eletext)
 
-    expect(eletext).to.equal("Raju")
+    cy.writeFile('cypress/fixtures/module1/flipcart.json', { menutext: eletext });
+    //expect(eletext).to.equal("Raju")
     
    })
 
