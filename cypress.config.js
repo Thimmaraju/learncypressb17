@@ -6,7 +6,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
 
-    "chromeWebSecurity": false,
+   // "chromeWebSecurity": false,
     "viewportWidth": 1920,
     
     "viewportHeight": 1080,
