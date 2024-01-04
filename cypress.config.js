@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
 
@@ -16,10 +17,12 @@ module.exports = defineConfig({
     "video": true,
    // "retries":{"openMode":3, "runMode":5},
     "env":{
-
+      allureReuseAfterSpec: true,
+      "allureResultsPath": "allure-results",
        "clienturl": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
        "username": "Admin",
-       "password": "admin123"
+       "password": "admin123",
+       "cookivalue": "orangehrm=d40596a5c7abd9507ffa0b9a8555690e"
 
     },
    // "videosFolder": "cypress/Raju",
@@ -27,8 +30,11 @@ module.exports = defineConfig({
     //"watchForFileChanges": false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
+ 
       require('cypress-mochawesome-reporter/plugin')(on);
       on('task', {downloadFile})
+      allureWriter(on, config);
+      return config;
     },
   },
 });

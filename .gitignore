@@ -3,3 +3,4 @@ package-lock.json
 cypress/reports
 cypress/screenshots
 cypress/videos
+allure-results
