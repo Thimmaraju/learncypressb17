@@ -2,6 +2,7 @@ import data from '../../fixtures/addemployee.json'
 //import login from '../../pages/loginpage.po'
 import dashboard from '../../pages/dashboardpage.po'
 import addemployee from '../../pages/addemployee.po'
+import login from '../../pages/loginpage.po'
 describe("verify addemployee functionality", ()=>{
 
 

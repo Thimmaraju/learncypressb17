@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "rimraf -r ./allure-results",
+    "test": "npm run raju || npm run open-report",
+    "raju": "npx cypress run --env allure=true --reporter mocha-allure-reporter",
+    "open-report": "allure serve"
   },
   "author": "Raju",
   "license": "ISC",

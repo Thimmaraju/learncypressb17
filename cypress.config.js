@@ -7,6 +7,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
 
+    projectId: "ovhqr9",
    // "chromeWebSecurity": false,
     "viewportWidth": 1920,
     
@@ -15,7 +16,7 @@ module.exports = defineConfig({
     //"defaultCommandTimeout": 20000,
     "baseUrl": "https://opensource-demo.orangehrmlive.com",
     "video": true,
-   // "retries":{"openMode":3, "runMode":5},
+    "retries":{"openMode":3, "runMode":1},
     "env":{
       allureReuseAfterSpec: true,
       "allureResultsPath": "allure-results",
@@ -26,7 +27,7 @@ module.exports = defineConfig({
 
     },
    // "videosFolder": "cypress/Raju",
-    "videoCompression": 51,
+    "videoCompression": 0,
     //"watchForFileChanges": false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
