@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "pretest": "rimraf -r ./allure-results",
-    "test": "npm run raju || npm run open-report",
-    "raju": "npx cypress run --env allure=true --reporter mocha-allure-reporter",
+    "test": "npm run generatereport || npm run open-report",
+    "generatereport": "npx cypress run --env allure=true --reporter mocha-allure-reporter",
     "open-report": "allure serve"
   },
   "author": "Raju",
