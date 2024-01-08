@@ -7,6 +7,8 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
 
+    "specPattern": "**/*.feature",
+
     projectId: "ovhqr9",
    // "chromeWebSecurity": false,
     "viewportWidth": 1920,
@@ -16,7 +18,7 @@ module.exports = defineConfig({
     //"defaultCommandTimeout": 20000,
     "baseUrl": "https://opensource-demo.orangehrmlive.com",
     "video": true,
-    "retries":{"openMode":3, "runMode":1},
+    //"retries":{"openMode":3, "runMode":1},
     "env":{
       allureReuseAfterSpec: true,
       "allureResultsPath": "allure-results",
@@ -31,7 +33,7 @@ module.exports = defineConfig({
     //"watchForFileChanges": false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
- 
+      return require('./cypress/plugins/index.js')(on, config)
       require('cypress-mochawesome-reporter/plugin')(on);
       on('task', {downloadFile})
       allureWriter(on, config);
